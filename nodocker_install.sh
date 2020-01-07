@@ -9,7 +9,7 @@
 
 apt update
 DEBIAN_FRONTEND=noninteractive apt install -y \
-	php7.2 apache2 libapache2-mod-php7.2 \
+	php7.2 apache2 php7.2-fpm \
 	php7.2-opcache php7.2-intl php7.2-mbstring php7.2-xml php7.2-mysql \
 	nodejs npm composer \
 	mariadb-client-10.1 mariadb-server-10.1 \
@@ -30,6 +30,9 @@ cp apache.conf /etc/apache2/sites-available/000-default.conf
 cp parsoid_config.yaml /opt/parsoid/config.yaml
 cp ExtraLocalSettings.php /var/www/html/w
 a2enmod rewrite actions php7.2 alias
+
+a2enmod proxy_fcgi setenvif
+a2enconf php7.2-fpm
 
 DBUSER=wiki
 MEDIAWIKI_USER="WikiSysop"
