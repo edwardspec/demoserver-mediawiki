@@ -1,7 +1,7 @@
 <?php
 
 # URL of the testwiki (as configured in .travis.yml).
-$wgServer = "http://demowiki.example.com:1234";
+$wgServer = "http://demowiki.example.com";
 $wgScriptPath = "/w";
 $wgArticlePath = "/wiki/$1";
 
